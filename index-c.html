@@ -154,7 +154,26 @@
         </div>
     </section>
     <script>
-        
+        $(document).ready(function () {
+            $('.btn-light').click(function () {
+                if ($('input').hasClass('needclear')) {
+                    if ($(this).hasClass('.btn-num')) {
+                        $('input').val('');
+                        $('input').removeClass('needClear');
+                    }
+                    if ($(this).hasClass('.btn-act')) {
+                        $('input').removeClass('needclear');
+                    }
+                }
+                var current_val = $('input').val();
+                var val = $(this).data('val');
+                $('input').val(current_val + val);
+            });
+            $('.btn-warning').click(function () {
+                $('input').val('');
+            });
+            
+        });
     </script>
 </body>
 
