@@ -170,7 +170,15 @@
                 $('input').val(current_val + val);
             });
             $('.btn-warning').click(function () {
-                $('input').val('');
+                $('input').val(' ');
+            });
+            $('.btn-success').click(function(){
+                var a = $('.btn-num').val();
+                var b = $('.btn-act').val();
+                var c = parseInt(a) + parseInt(b);
+                
+                $('input').val(c);
+                $('input').addClass('needclear');
             });
         });
     </script>
