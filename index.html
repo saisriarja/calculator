@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="calc col-lg-12 p-0 ">
-                    <input type="text" class="form-control text-right bg-light border-0 w-100">
+                    <input type="text" class="form-control calc-display text-right bg-light border-0 w-100">
                 </div>
                 <div class="m-container col-12 d-flex flex-row flex-wrap bg-light p-0">
                     <div class="col-2">
@@ -155,16 +155,7 @@
     </section>
     <script>
         $(document).ready(function () {
-            $('.btn-light').click(function () {
-                if ($('input').hasClass('needclear')) {
-                    if ($(this).hasClass('.btn-num')) {
-                        $('input').val('');
-                        $('input').removeClass('needClear');
-                    }
-                    if ($(this).hasClass('.btn-act')) {
-                        $('input').removeClass('needclear');
-                    }
-                }
+            $('.btn-light').click(function() {
                 var current_val = $('input').val();
                 var val = $(this).data('val');
                 $('input').val(current_val + val);
@@ -172,14 +163,7 @@
             $('.btn-warning').click(function () {
                 $('input').val(' ');
             });
-            $('.btn-success').click(function(){
-                var a = $('.btn-num').val();
-                var b = $('.btn-num').val();
-                var c = parseInt(a) + parseInt(b);
-                
-                $('input').val(c);
-                $('input').addClass('needclear');
-            });
+            
         });
     </script>
 </body>
