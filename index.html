@@ -77,7 +77,7 @@
                         <button class="text btn-act btn-warning">C</button>
                     </div>
                     <div class="col-3 bdr">
-                        <button class="text btn-act btn-light numberr" data-val="×">×</button>
+                        <button class="text btn-act btn-light numberr" ><i class="fa fa-times pl-3" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <div class="icon-box col-12 d-flex flex-row flex-wrap bg-light justify-content-between p-0">
@@ -105,7 +105,7 @@
                         <button class="bg-white button btn-light numberr btn-num" data-val="9">9</button>
                     </div>
                     <div class="col-3 bdr">
-                        <button class="bg-white button btn-light numberr btn-act" data-val=" × ">×</button>
+                        <button class="bg-white button btn-light numberr btn-act" data-val="×">×</button>
                     </div>
                     <div class="icon-box col-12 d-flex flex-row flex-wrap bg-light justify-content-between p-0">
                         <div class="col-3 bdr">
@@ -157,14 +157,31 @@
         $(document).ready(function () {
             $('.numberr').click(function () {
                 var on_display_val = $('.calc-display').val();
-                debugger;
                 var current_val = $(this).data('val');
                 $('.calc-display').val(on_display_val + current_val);
+
             });
             $('.btn-warning').click(function () {
-                $('input').val(' ');
+                $('.calc-display').val(' ');
             });
-
+            $('.btn-success').click(function () {
+                var val = $('.calc-display').val().split(" ");
+                var result = 'ERROR';
+                if (val[1] == '÷') {
+                    result = parseInt(val[0]) / parseInt(val[2]);
+                }
+                if (val[1] == '×') {
+                    result = parseInt(val[0]) * parseInt(val[2]);
+                }
+                if (val[1] == '-') {
+                    result = parseInt(val[0]) - parseInt(val[2]);
+                }
+                if (val[1] == '+') {
+                    result = parseInt(val[0]) + parseInt(val[2]);
+                }
+                $('.calc-display').val(result);
+                $('.calc-display').addClass('needclear');
+            });
         });
     </script>
 </body>
